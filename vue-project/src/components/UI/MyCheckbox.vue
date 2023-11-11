@@ -37,13 +37,11 @@ export default {
   display: inline-block;
   width: 34px;
   height: 34px;
-}
-
-.checkbox__span {
   cursor: pointer;
-  background-color: color(button-color);
+  background-color: color(background-color);
   transition: 0.4s;
   border-radius: 10px;
+  border: 1px dotted color(primary);
 }
 
 .checkbox__span:before {

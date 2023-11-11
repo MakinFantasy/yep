@@ -41,7 +41,8 @@
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.6rem;
-  color: color(subtitleColor);
+  color: color(primary);
+  box-shadow: color(primary);
   @include media(min, sm) {
     font-size: 2rem;
   }

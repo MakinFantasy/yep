@@ -20,13 +20,14 @@ export default {
   color: color(button-text-color);
   background-color: color(button-color);
   border-radius: 10px;
-  transition: all 0.3s ease;
+  border: 1px solid color(button-border-color);
+  transition: all 0.7s ease;
   @include media(min, md) {
     padding: 15px;
   }
 
   &:focus {
-    box-shadow: 0px 0px 7px 3px #757575;
+    box-shadow: 0px 0px 7px 3px #f5f5dc;
   }
 
   &:active {

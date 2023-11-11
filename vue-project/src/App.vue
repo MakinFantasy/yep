@@ -2,9 +2,9 @@
   <main>
     <section class="comments">
       <div class="comments__wrapper">
-        <h1 class="comments__title">Лабораторная работа №12</h1>
+        <h1 class="comments__title">Vue.app</h1>
         <div class="comments__switch">
-          <span class="comments__text">Отображение комментариев в реальном времени</span>
+          <span class="comments__text">Live refresh</span>
           <my-checkbox
             class="comments__input"
             :checked="switchChecked"
@@ -16,7 +16,7 @@
           @click="showForm"
           class="comments__button"
           v-show="!formVisible"
-          >Оставить комментарий</my-button
+          >Post comment</my-button
         >
 
         <comments-form
@@ -27,7 +27,7 @@
         />
 
         <h2 class="comments__subtitle">
-          Список всех комментариев ({{ commentsLength }})
+          Comments ({{ commentsLength }})
         </h2>
 
         <comments
@@ -61,8 +61,8 @@ export default {
   },
 
   methods: {
-    showReplyDialog(parentCommentId) {
-      this.parentCommentId = parentCommentId;
+    showReplyDialog(parentId) {
+      this.parentId = parentId;
       this.formVisible = true;
     },
 
@@ -83,7 +83,7 @@ export default {
         const response = await axios.get('http://194.67.93.117:80/comments');
         this.comments.push(...response.data.reverse());
       } catch (error) {
-        console.log('Ошибка при получении комментариев');
+        console.log('Error fetching comments');
         console.log(error);
       }
     },
@@ -98,11 +98,11 @@ export default {
           reaction: comment.reaction,
           parentId: comment.parentId,
         };
-
+        console.log(comment);
         const response = await axios.post(url, commentBody, {
           headers: {
             'Content-Type': 'application/json',
-            Username: 'dmitriytheprogrammer',
+            Username: 'jutee7',
           },
         });
 

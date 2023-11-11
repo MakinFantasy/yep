@@ -8,7 +8,7 @@
         {{ comment.text }}
       </p>
       <div class="item__bottom">
-        <my-button class="item__button" @click="showForm"> Ответить</my-button>
+        <my-button class="item__button" @click="showForm"> Answer</my-button>
         <span class="item__replies" v-if="childs">
           {{ childs.length }}
         </span>
@@ -23,7 +23,7 @@
     <ul v-if="childs" class="item__childs">
       <Comment @showDialog="showChildDialog" @send="sendComment" v-for="child in childs" :comment="child"
         :childs="child.childs" :key="child.id" :style="{
-          'margin-left': 10 + 'px',
+          'margin-left': 5 + 'px',
         }" />
     </ul>
 
@@ -68,11 +68,11 @@ export default {
 
     convertDate() {
       return new Intl.DateTimeFormat('ru', {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
         hour: 'numeric',
         minute: 'numeric',
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric',
       }).format(Date.parse(this.date));
     },
   },
@@ -97,16 +97,18 @@ export default {
 @use '@/assets/scss/variables' as *;
 
 .item__childs {
-  border-left: #e4e4e4 0.5rem solid;
+  border-left: #e4e4e4 0.1rem solid;
 }
 
 .item__comment {
+  color: rgb(245, 245, 220);
   padding: 1rem;
   margin-top: 1.5rem;
   list-style: none;
   border-radius: 7px;
-  background-color: #f4f4f4;
+  background-color: rgb(0, 0, 0);
   transition: box-shadow 0.8s linear;
+  border: 1px solid rgb(245, 245, 220);
 
   @include media(min, md) {
     padding: 15px;
@@ -118,11 +120,11 @@ export default {
 }
 
 .item__positive {
-  background-color: rgb(0, 188, 94);
+  background-color: rgba(0, 188, 94, 0.17);
 }
 
 .item__negative {
-  background-color: rgb(246, 62, 62);
+  background-color: rgba(246, 62, 62, 0.17);
 }
 
 .item__author {

@@ -10,7 +10,7 @@
       class="section__item"
     />
   </ul>
-  <p class="section-text" v-else>Никаких комментариев нет</p>
+  <p class="section-text" v-else>No comments</p>
 </template>
 
 <script>

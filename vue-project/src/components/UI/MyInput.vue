@@ -32,13 +32,17 @@ export default {
 @use '@/assets/scss/mixin' as *;
 
 .input {
+  color: color(primary);
   font-size: 1.5rem;
   width: 100%;
   padding: 10px 15px;
   border-radius: 5px;
+  border: 2px solid color(primary);
+  background: color(background-color);
 
   &:focus {
-    box-shadow: 0px 0px 4px 1px #757575;
+    outline: color(primary);
+    box-shadow: 0px 0px 4px 1px color(primary);
   }
 }
 </style>

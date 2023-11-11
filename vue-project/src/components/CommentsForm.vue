@@ -2,27 +2,27 @@
   <form method="post" class="form" @submit.prevent="sendComment">
 
     <label class="form__label">
-      <span class="form__text">Введите ваше имя</span>
+      <span class="form__text">Your name:</span>
       <my-input v-model.trim="formData.author" class="form__input" inputType="text" inputName="author"
-        placeholder="Ваше имя" required />
+        placeholder="Ivan Ivanov" required />
     </label>
 
     <label class="form__label">
-      <span class="visually-hidden">Введите текст комментария</span>
-      <my-textarea v-model="formData.text" class="form__input" textareaName="text" placeholder="Текст комментария"
+      <span class="visually-hidden">Message:</span>
+      <my-textarea v-model="formData.text" class="form__input" textareaName="text" placeholder="Lorem ipsum dolor sit amet, consectetur"
         rows="7" required></my-textarea>
     </label>
 
     <fieldset class="form__radio-list">
-      <legend class="visually-hidden">Выберите реакцию</legend>
+      <legend class="visually-hidden">Reaction:</legend>
       <label class="form__label">
-        <span class="visually-hidden">Положительная</span>
+        <span class="visually-hidden">Like</span>
         <input v-model="formData.reaction" type="radio" name="reaction" value="1" class="form__radio visually-hidden"
           required />
 
 
 
-        <svg class="form__img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="form__img" width="24" height="24" viewBox="0 0 24 24" stroke="#f5f5dc" fill="none" xmlns="http://www.w3.org/2000/svg">
 
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -51,10 +51,10 @@
 
       </label>
       <label class="form__label">
-        <span class="visually-hidden"> Нейтрально </span>
+        <span class="visually-hidden"> Neutral </span>
         <input v-model="formData.reaction" type="radio" required name="reaction" value="0"
           class="form__radio visually-hidden" checked />
-        <svg class="form__img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="form__img" stroke="#f5f5dc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_iconCarrier">
             <path
               d="M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM9 11.5C9.82843 11.5 10.5 10.8284 10.5 10C10.5 9.17157 9.82843 8.5 9 8.5C8.17157 8.5 7.5 9.17157 7.5 10C7.5 10.8284 8.17157 11.5 9 11.5ZM16.5 10C16.5 10.8284 15.8284 11.5 15 11.5C14.1716 11.5 13.5 10.8284 13.5 10C13.5 9.17157 14.1716 8.5 15 8.5C15.8284 8.5 16.5 9.17157 16.5 10ZM9 17C8.44772 17 8 16.5523 8 16C8 15.4477 8.44772 15 9 15H15C15.5523 15 16 15.4477 16 16C16 16.5523 15.5523 17 15 17H9Z"
@@ -63,11 +63,11 @@
         </svg>
       </label>
       <label class="form__label">
-        <span class="visually-hidden">Отрицательная</span>
+        <span class="visually-hidden">Dislike</span>
         <input v-model="formData.reaction" type="radio" name="reaction" value="-1" class="form__radio visually-hidden"
           required />
 
-        <svg class="form__img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="form__img" stroke="#f5f5dc" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="SVGRepo_iconCarrier"></g>
@@ -90,8 +90,8 @@
 
       </label>
     </fieldset>
-    <my-button class="form__button" :disabled="!formValid || appSending">
-      Отправить
+    <my-button class="button form__button" :disabled="!formValid || appSending">
+      Submit
     </my-button>
   </form>
 </template>
@@ -161,9 +161,9 @@ export default {
   max-width: 600px;
   margin: 15px auto 0;
   padding: 15px;
-  border: 2px solid color(primaryTitleColor);
+  border: 3px solid color(primaryTitleColor);
   border-radius: 10px;
-  background-color: #d5d5d5;
+  background-color: color(background);
 }
 
 .form__radio-list {
